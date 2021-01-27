@@ -9,7 +9,10 @@
       <ul class="list-group">
         <li 
           *ngFor="let employee of employeedArray"
-          class="list-group-item list-group-item-action">
+          class="list-group-item list-group-item-action"
+          (click)="openForEdit(employee)"
+          [class.active]="employee == selectedEmployee"
+          >
           <span class="badge badge-primary">{{employee.id}}</span> {{employee.name}} - {{ employee.country }}
         </li>
       </ul>
@@ -18,6 +21,22 @@
           <div class="card-title">
             Inserta un nuevo Empleado
           </div>
+          <div class="form-group">
+            <input type="text" [(ngModel)]="selectedEmployee.name" placeholder="Inserte Nombre" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" [(ngModel)]="selectedEmployee.country" placeholder="Inserte País" class="form-control">
+          </div>
+          <button (click)="addOrEdit()" class="btn btn-primary">
+            Enviar
+          </button>
+          <button 
+            *ngIf="selectedEmployee.id !== 0"
+            class="btn btn-danger ml-2"
+            (click)="delete()"
+            >
+              Eliminar
+          </button>
         </div>
       </div>
     </div>
