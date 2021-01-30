@@ -10,7 +10,7 @@ export class AppComponent {
 
   employeedArray: Employee[] = [
     {id: 1, name: "Ryan", country: "USA"},
-    {id: 2, name: "Angelica", country: "USA"},
+    {id: 2, name: "Paola", country: "USA"},
     {id: 3, name: "Joe", country: "USA"}
   ];
 
